@@ -1,0 +1,78 @@
+/* --- APP INITIAL STYLES --- */
+.App { text-align: center; }
+.App-logo { height: 40vmin; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo { animation: App-logo-spin infinite 20s linear; }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-link { color: #61dafb; }
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- GLOBAL NAVIGATION FIXES --- */
+
+/* 1. Global Header (App.js wala) */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 2. Page content ko header ke niche set karein */
+body {
+    padding-top: 130px; 
+}
+
+/* 3. Page ke andar wale duplicate navbars ko hide karne ke liye */
+/* Ye automatically sabhi pages se duplicate navbars hata dega */
+#root > div:not(.sticky-header) .navbar, 
+#root > div:not(.sticky-header) .second-navbar {
+    display: none !important;
+}
+
+/* 4. Modal Overlay fix (Report page ke liye) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+/* Modal ke andar clicks allow karne ke liye */
+.modal-content {
+    pointer-events: auto;
+}
+/* --- FORCE KILL ALL ORANGE LINES --- */
+
+/* 1. About section ki heading */
+.about-section h2,
+.about-text h2,
+h2 {
+  border-bottom: 0px solid transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+ 
